@@ -60,7 +60,7 @@ async function runJob(ctx: Context, job: VpnJob) {
   const since = new Date();
 
   try {
-    await ctx.reply(`🚀 Запускаю: ${job.label}`);
+    await ctx.reply(`Запускаю: ${job.label}`);
     await dispatchWorkflow(job.workflowFile);
 
     const run = await findRunAfter(job.workflowFile, since);
@@ -90,7 +90,7 @@ async function runJob(ctx: Context, job: VpnJob) {
       }
     }
   } catch (err) {
-    await ctx.reply(`💥 Ошибка: ${(err as Error).message}`);
+    await ctx.reply(`Ошибка: ${(err as Error).message}`);
   } finally {
     locks.delete(job.workflowFile);
   }

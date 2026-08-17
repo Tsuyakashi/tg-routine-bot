@@ -13,7 +13,7 @@ export async function authMiddleware(ctx: Context, next: NextFunction) {
   const allowed = getAllowedIds();
 
   if (!userId || !allowed.includes(userId)) {
-    await ctx.reply("⛔ Доступ запрещён");
+    await ctx.reply("Доступ запрещён");
     return;
   }
   await next();
